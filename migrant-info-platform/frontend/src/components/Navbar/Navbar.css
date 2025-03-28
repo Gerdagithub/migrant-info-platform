@@ -1,0 +1,17 @@
+@import '../../assets/styles/variables.css';
+
+.custom-navbar {
+	background-color: var(--secondary-color);
+}
+
+.navbar-category-element {
+	font-size: large;
+	font-weight: 500;
+}
+
+.navbar-category-element a {
+	color: black;
+	font-family: var(--primary-font-family);
+	text-transform: uppercase;
+}
+  

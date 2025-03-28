@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import './assets/bootstrap/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js'; // sometimes may be needed
+import { WEB_NAME } from './constants.js';
+
+import Navbar from "./components/Navbar/Navbar.jsx"
+import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar/>
+      <h1 
+        id="web-title"
+        className='text-center mt-5 mb-3'>
+          {WEB_NAME}
+      </h1>
+      <CategoryCardsContainer/>
+    </>
   );
 }
 
