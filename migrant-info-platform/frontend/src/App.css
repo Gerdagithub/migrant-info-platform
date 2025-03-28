@@ -43,3 +43,7 @@
   font-family: var(--primary-font-family);
   font-weight: 600;
 }
+
+body {
+  overflow: hidden;
+}

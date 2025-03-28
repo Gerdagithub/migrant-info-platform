@@ -6,6 +6,7 @@ import { WEB_NAME } from './constants.js';
 
 import Navbar from "./components/Navbar/Navbar.jsx"
 import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx"
+import Chatbot from "./components/Chatbot/Chatbot.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           {WEB_NAME}
       </h1>
       <CategoryCardsContainer/>
+      <Chatbot/>
     </>
   );
 }

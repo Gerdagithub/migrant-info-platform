@@ -9,6 +9,8 @@ Preparation:
 *python -m venv venv*
 *.\venv\Scripts\activate*
 *pip install django djangorestframework* // If not installed
+pip install django-cors-headers
+
 
 Start:
 cd backend
@@ -22,6 +24,7 @@ To run frontend run these commands:
 Preparation:
 *cd frontend*
 *npm install*
+npm install axios
 npm install bootstrap
 
 Start:
