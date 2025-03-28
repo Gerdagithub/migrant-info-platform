@@ -29,4 +29,4 @@ __pycache__/
 venv/
 
 # Frontend environment
-/migrant-info-platform/frontend/node_modules
+/migrant-info-platform/frontend/node_modules/
