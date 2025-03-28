@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Chatbot.css";
@@ -9,6 +9,7 @@ const Chatbot = () => {
 	const [question, setQuestion] = useState("");
 	const [messages, setMessages] = useState([]); 
 	const textareaRef = useRef(null); 
+	const messagesEndRef = useRef(null);
   
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -51,6 +52,16 @@ const Chatbot = () => {
 		// If Shift+Enter is pressed, let the default behavior insert a newline
 	};
 
+	// Scroll to bottom when messages change
+	useEffect(() => {
+		messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+	}, [isOpen, messages]);
+
+	const handleSendMessage = (newMessage) => {
+		// Assuming newMessage is an object like { type: "user", text: "Hello" }
+		setMessages((prevMessages) => [...prevMessages, newMessage]);
+	};
+
 	return (
 	  <>
 		{/* Chat Bubble */}
@@ -63,10 +74,14 @@ const Chatbot = () => {
 		
 		{/* Fullscreen Chat Overlay */}
 		{isOpen && (
-		  <div className="chat-window-overlay">
+		  <div className={`chat-window-overlay fade ${isOpen ? "show" : ""}`}>
 			<div className="chat-header">
-			  <h2>Chatbot</h2>
-			  <button onClick={() => setIsOpen(false)}>Close</button>
+			  {/* <h2>Chatbot</h2> */}
+			  <button 
+			  	className='collapse-chat-button'
+			  	onClick={() => setIsOpen(false)}
+			   >
+				Collapse the chat</button>
 			</div>
 			
 			{messages.length === 0 && (
@@ -75,9 +90,17 @@ const Chatbot = () => {
 			<div className="messages-container">
 				{messages.map((msg, index) => (
 					<div key={index} className={`message ${msg.type}`}>
-					{msg.text}
+						{msg.type === "chatbot" && (
+							<img 
+								src={chatbotLogo} 
+								alt="Chatbot Logo" 
+								className="chatbot-logo-message" />
+							)}
+						{/* <p>{`message ~${msg.type}~`}</p> */}
+						{msg.text}
 					</div>
 				))}
+				<div ref={messagesEndRef} />
 			</div>
 
 			<form onSubmit={handleSubmit} className="chatbot-input-form">
