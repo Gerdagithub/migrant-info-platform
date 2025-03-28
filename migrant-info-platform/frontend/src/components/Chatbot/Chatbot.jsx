@@ -19,10 +19,11 @@ const Chatbot = () => {
 		setQuestion("");
 	
 		try {
-		  const res = await axios.post("/api/assistant/", { question });
-		  setMessages([...newMessages, { type: "assistant", text: res.data.answer }]);
+		  const res = await axios.post("/chatbot/chatbot_response/", { question });
+			// const res = await axios.post("http://127.0.0.1:8000/chatbot/chatbot_response/", { question });
+		  setMessages([...newMessages, { type: "chatbot", text: res.data.answer }]);
 		} catch (error) {
-		  setMessages([...newMessages, { type: "assistant", text: "Error communicating with the server." }]);
+		  setMessages([...newMessages, { type: "chatbot", text: "Error communicating with the server." }]);
 		}
 	
 		// Reset textarea height after sending message

@@ -9,6 +9,8 @@ Preparation:
 *python -m venv venv*
 *.\venv\Scripts\activate*
 *pip install django djangorestframework* // If not installed
+pip install django-cors-headers
+
 
 Start:
 cd backend
