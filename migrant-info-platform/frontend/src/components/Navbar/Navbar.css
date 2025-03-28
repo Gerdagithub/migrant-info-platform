@@ -1,0 +1,5 @@
+@import '../../assets/styles/variables.css';
+
+.custom-navbar {
+	background-color: var(--secondary-color);
+}

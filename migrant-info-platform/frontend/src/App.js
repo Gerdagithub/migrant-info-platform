@@ -2,27 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import './assets/bootstrap/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js'; // sometimes may be needed
+import { WEB_NAME } from './constants.js';
+
+import Navbar from "./components/Navbar/Navbar.jsx"
 
 function App() {
   return (
     <>
+      <Navbar/>
+      <h1 className='text-center mt-5 mb-3'>{WEB_NAME}</h1>
     </>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
