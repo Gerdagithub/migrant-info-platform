@@ -1,33 +1,38 @@
 # DCIP
 Digital Citizenship Integration Platform
 
+## Running Backend
+### Initial setup:
+```bash
+cd migrant-info-platform/backend
+python -m venv venv
+.\venv\Scripts\activate
+pip install django djangorestframework  # If not installed
+pip install django-cors-headers         # If not installed
+```
 
-To run backend run these commands:
-
-Preparation:
-*cd migrant-info-platform/backend*
-*python -m venv venv*
-*.\venv\Scripts\activate*
-*pip install django djangorestframework* // If not installed
-pip install django-cors-headers
-
-
-Start:
-cd backend
-.\venv\Scripts\activate  # if using a virtual environment
+### Start:
+```bash
+cd migrant-info-platform/backend
 python manage.py migrate
 python manage.py runserver
+```
 
-go to *http://127.0.0.1:8000*
+The admin page can be reached at *http://127.0.0.1:8000/admin*.
 
-To run frontend run these commands:
-Preparation:
-*cd frontend*
-*npm install*
+
+## Running Frontend
+### Initial setup:
+```bash
+cd migrant-info-platform/frontend
+npm install
 npm install axios
 npm install bootstrap
+```
 
-Start:
-*npm start*
+### Start:
+```bash
+npm start
+```
 
-go to *http://localhost:3000*
+The home page can be reached at *http://localhost:3000*
