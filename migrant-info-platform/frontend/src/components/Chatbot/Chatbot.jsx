@@ -74,7 +74,7 @@ const Chatbot = () => {
 		
 		{/* Fullscreen Chat Overlay */}
 		{isOpen && (
-		  <div className={`chat-window-overlay fade ${isOpen ? "show" : ""}`}>
+		  <div className="chat-window-overlay">
 			<div className="chat-header">
 			  {/* <h2>Chatbot</h2> */}
 			  <button 
@@ -85,7 +85,13 @@ const Chatbot = () => {
 			</div>
 			
 			{messages.length === 0 && (
-				<div className="assistant-placeholder main-title">Ask a question</div>
+				<>
+					<div className="chatbot-initial-title">Ask me a question</div>
+					<p id='chatbot-introduction'>
+						Hello! I help to answer questions that do not require personal data.
+					</p>
+				</>
+				
 			)}
 			<div className="messages-container">
 				{messages.map((msg, index) => (
