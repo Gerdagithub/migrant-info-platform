@@ -22,6 +22,7 @@ To run frontend run these commands:
 Preparation:
 *cd frontend*
 *npm install*
+npm install axios
 npm install bootstrap
 
 Start:
