@@ -11,7 +11,11 @@ function App() {
   return (
     <>
       <Navbar/>
-      <h1 className='text-center mt-5 mb-3'>{WEB_NAME}</h1>
+      <h1 
+        id="web-title"
+        className='text-center mt-5 mb-3'>
+          {WEB_NAME}
+      </h1>
       <CategoryCardsContainer/>
     </>
   );
