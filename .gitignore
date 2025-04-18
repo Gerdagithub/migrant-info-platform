@@ -30,3 +30,7 @@ venv/
 
 # Frontend environment
 /migrant-info-platform/frontend/node_modules/
+
+# Data for the chatbot
+migrant-info-platform/backend/chatbot_service/data/raw
+migrant-info-platform/backend/chatbot_service/data/cleaned
