@@ -3,3 +3,7 @@ uvicorn
 transformers
 sentence-transformers
 beautifulsoup4
+sentence-transformers
+torch
+ipynbname
+nltk
