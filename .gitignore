@@ -35,3 +35,4 @@ venv/
 # Data for the chatbot
 migrant-info-platform/backend/chatbot_service/data/raw
 migrant-info-platform/backend/chatbot_service/data/cleaned
+migrant-info-platform/backend/chatbot_service/data/embeddings

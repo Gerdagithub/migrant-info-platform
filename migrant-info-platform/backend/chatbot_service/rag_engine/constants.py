@@ -8,7 +8,8 @@ SCRIPT_DIR = Path.cwd()
 CHATBOT_SERVICE_ROOT = os.path.normpath(os.path.join(SCRIPT_DIR, os.pardir))
 
 RAW_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'raw')
-CLEANED_DATA_DIR  = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'cleaned')
+CLEANED_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'cleaned')
+EMBEDDINGS_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'embeddings')
 
 # Directories for sites in original and cleaned dirs
 # SITES_DIRS = ['vmi_site', 'sodra_site', 'micenter_site']
@@ -22,6 +23,8 @@ SITE_ELEMENTS_JSON_FILENAME = "cleaned_data.json"
 
 # Cleaned data from all HTMLs, converted to JSON
 SITES_ELEMENTS_JSON_PATH = os.path.join(CLEANED_DATA_DIR, 'sites_elements.json')
+SAVED_TEXTS_PATH = os.path.join(CLEANED_DATA_DIR, 'saved_texts.json')
+MERGED_SITES_PATH = os.path.join(CLEANED_DATA_DIR, 'merged_sites.json')
 
 # HTML cleaner
 ALLOWED_TAGS = {
@@ -34,7 +37,9 @@ ALLOWED_TAGS = {
 SIMILAR_TEXT_THRESHOLD = 0.85
 
 # Chunking
-URL_PATTERN = r"\[https?://[^\[\]]+\]"
-REPLACED_URL_MAP_PATH = os.path.join(CLEANED_DATA_DIR, "replaced_url_map.json")
+# URL_PATTERN = r"\[https?://[^\[\]]+\]"
+URL_PATTERN = r"\[([^\[\]]+)\]"
+REPLACED_URL_MAP_PATH = os.path.join(EMBEDDINGS_DATA_DIR, "replaced_url_map.json")
+SITES_ELEMENTS_WITH_REPLACED_URLS_PATH = os.path.join(EMBEDDINGS_DATA_DIR, "sites_elements_with_replaced_urls.json")
 MAX_TOKENS = 450
 OVERLAP = 50
