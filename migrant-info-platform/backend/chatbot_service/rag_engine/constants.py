@@ -12,8 +12,8 @@ CLEANED_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'cleaned')
 EMBEDDINGS_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'embeddings')
 
 # Directories for sites in original and cleaned dirs
-# SITES_DIRS = ['vmi_site', 'sodra_site', 'micenter_site']
-SITES_DIRS = ['micenter_site']
+SITES_DIRS = ['vmi_site', 'sodra_site', 'micenter_site']
+# SITES_DIRS = ['micenter_site']
 
 # This file is in every site's directory
 URL_MAP_FILENAME = 'url_map.json'
