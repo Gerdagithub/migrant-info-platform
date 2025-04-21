@@ -5,7 +5,9 @@ from pathlib import Path
 SCRIPT_DIR = Path.cwd()
 
 # Chatbot service root = one level up
-CHATBOT_SERVICE_ROOT = os.path.normpath(os.path.join(SCRIPT_DIR, os.pardir))
+# CHATBOT_SERVICE_ROOT = os.path.join(os.path.normpath(os.path.join(SCRIPT_DIR, os.pardir)), "chatbot_service")
+# /home/gerzem1/PDP/DCIP/migrant-info-platform/backend/chatbot_service/chatbot_service
+CHATBOT_SERVICE_ROOT = os.path.join("/", "home", "gerzem1", "PDP", "DCIP", "migrant-info-platform", "backend", "chatbot_service")
 
 RAW_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'raw')
 CLEANED_DATA_DIR = os.path.join(CHATBOT_SERVICE_ROOT, 'data', 'cleaned')
@@ -41,5 +43,15 @@ SIMILAR_TEXT_THRESHOLD = 0.85
 URL_PATTERN = r"\[([^\[\]]+)\]"
 REPLACED_URL_MAP_PATH = os.path.join(EMBEDDINGS_DATA_DIR, "replaced_url_map.json")
 SITES_ELEMENTS_WITH_REPLACED_URLS_PATH = os.path.join(EMBEDDINGS_DATA_DIR, "sites_elements_with_replaced_urls.json")
-MAX_TOKENS = 450
-OVERLAP = 50
+TOKENIZING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+MAX_TOKENS = 490
+OVERLAP = 90
+
+# Embedding
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+FAISS_INDEX_PATH = os.path.join(EMBEDDINGS_DATA_DIR, 'chatbot_index.faiss')
+FAISS_METADATA_PATH = os.path.join(EMBEDDINGS_DATA_DIR, 'metadata.pkl')
+
+# LLM
+MAX_TOKENS_LLM = 2048
+LLM_MODEL = "google/gemma-7b-it"
