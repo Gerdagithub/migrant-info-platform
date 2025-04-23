@@ -81,11 +81,32 @@
 	margin-bottom: 70px;
 	padding: 10px;
 	border-radius: 10px;
-	font-size: 16px;
+	font-size: 20px;
 	max-width: 90%;
 	white-space: pre-wrap;
 	padding-bottom: 20px;
 	color: var(--primary-text-color);
+}
+
+.message span p {
+	line-height: 1.5; 
+}
+
+/* List items */
+.message span ul {
+	margin: 0 0;
+	padding-left: 50px;
+}
+
+.message span li {
+	margin: 2px 0;
+	line-height: 1.5;
+}
+
+.message span h3 {
+	/* margin: 2px 0; */
+	line-height: 1.5;
+	margin: 0 0;
 }
 
 .chatbot-logo-message {

@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Chatbot.css";
 import chatbotLogo from "../../assets/images/chatbotLogo.png";
 
+import { marked } from "marked";
+import DOMPurify from "dompurify";
+
 const Chatbot = () => {
 	const [isOpen, setIsOpen] = React.useState(false);
 	const [question, setQuestion] = useState("");
@@ -21,8 +24,10 @@ const Chatbot = () => {
 	
 		try {
 		  const res = await axios.post("/chatbot/chatbot_response/", { question });
+		  const cleanAnswer = res.data.answer.trim();
 			// const res = await axios.post("http://127.0.0.1:8000/chatbot/chatbot_response/", { question });
-		  setMessages([...newMessages, { type: "chatbot", text: res.data.answer }]);
+		//   setMessages([...newMessages, { type: "chatbot", text: res.data.answer }]);
+		  setMessages([...newMessages, { type: "chatbot", text: cleanAnswer }]);
 		} catch (error) {
 		  setMessages([...newMessages, { type: "chatbot", text: "Error communicating with the server." }]);
 		}
@@ -62,6 +67,17 @@ const Chatbot = () => {
 		setMessages((prevMessages) => [...prevMessages, newMessage]);
 	};
 
+
+	// const formatMarkdown = (text) => {
+	// 	const rawHtml = marked.parse(text);
+	// 	return DOMPurify.sanitize(rawHtml);
+	// };	
+	const formatMarkdown = (text) => {
+		const cleaned = text.trim().replace(/\n{3,}/g, "\n\n"); // prevent 3+ blank lines
+		const rawHtml = marked.parse(cleaned);
+		return DOMPurify.sanitize(rawHtml);
+	};
+	
 	return (
 	  <>
 		{/* Chat Bubble */}
@@ -103,7 +119,8 @@ const Chatbot = () => {
 								className="chatbot-logo-message" />
 							)}
 						{/* <p>{`message ~${msg.type}~`}</p> */}
-						{msg.text}
+						{/* {msg.text} */}
+						<span dangerouslySetInnerHTML={{ __html: formatMarkdown(msg.text) }} />
 					</div>
 				))}
 				<div ref={messagesEndRef} />

@@ -1,28 +1,38 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./CategoryCardsContainer.css"
-import { WEB_NAME, CATEGORY_NAME_LIST, CATEGORY_LINK_LIST } from '../../constants.js';
+import {
+  CATEGORY_NAME_LIST,
+  CATEGORY_LOGO_LIST,
+  CATEGORY_DESCRIPTION_LIST
+} from '../../constants.js';
 
-const CategoryCardsContainer = () => {
-  return (
-	<>
-	<div className="container-fluid px-0 category-grid">
-      <div className="row gx-0">
-        {CATEGORY_NAME_LIST.map((name, index) => (
-          <div key={index} className="col-6 d-flex col-md-6">
-            <a 
-				href={CATEGORY_LINK_LIST[index]}
-				className={index % 2 == 0
-					? "category-card ms-auto"
-					: "category-card me-auto"}>
-              {name}
-            </a>
+const CategoryCardsContainer = () => (
+  <div className="container my-4">
+    <div className="row justify-content-left">
+      {CATEGORY_NAME_LIST.map((name, idx) => (
+        <div key={idx} className="col-12 col-sm-6 col-lg-3 mb-4">
+          <div className="card card-conteiner">
+            <img
+              src={CATEGORY_LOGO_LIST[idx]}
+              className="card-img"
+              alt={name}
+              style={{ width: '60px', height: '60px', objectFit: 'contain' }}
+            />
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title">{name}</h5>
+              <p className="card-text flex-grow-1">
+                {CATEGORY_DESCRIPTION_LIST[idx]}
+              </p>
+              <button type='button' className='btn card-btn'>Read more ></button>
+            </div>
+
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
-	</>
-  )
-};
+
+  </div>
+);
 
 export default CategoryCardsContainer;

@@ -14,7 +14,7 @@ def chatbot_response(request):
         response = requests.post(
             "https://03db-83-171-44-52.ngrok-free.app/query",
             json={"question": user_question},
-            timeout=10
+            timeout=120
         )
         response.raise_for_status()  # Raise exception for HTTP errors
         answer_data = response.json()
