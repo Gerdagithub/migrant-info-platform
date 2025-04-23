@@ -12,7 +12,8 @@ def chatbot_response(request):
     try:
         # Forward the request to the external FastAPI server
         response = requests.post(
-            "https://03db-83-171-44-52.ngrok-free.app/query",
+            # "https://03db-83-171-44-52.ngrok-free.app/query",
+            "https://8de9-83-171-44-52.ngrok-free.app/query",
             json={"question": user_question},
             timeout=120
         )

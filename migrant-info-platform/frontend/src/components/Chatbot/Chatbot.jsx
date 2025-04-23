@@ -2,10 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Chatbot.css";
-import chatbotLogo from "../../assets/images/chatbotLogo.png";
+import chatbotLogo from "../../assets/images/chatbot-logo.png";
 
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+
+import sendButton from "../../assets/images/send-button.png"
 
 const Chatbot = () => {
 	const [isOpen, setIsOpen] = React.useState(false);
@@ -93,11 +95,19 @@ const Chatbot = () => {
 		  <div className="chat-window-overlay">
 			<div className="chat-header">
 			  {/* <h2>Chatbot</h2> */}
+				<div className="chatbot-info">
+					<img src={chatbotLogo} alt="Tomas" className="chatbot-avatar" />
+					<div className="chatbot-meta">
+					<div className="chatbot-name">Tomas</div>
+					<div className="chatbot-role">Migration Assistant</div>
+					</div>
+				</div>
 			  <button 
 			  	className='collapse-chat-button'
 			  	onClick={() => setIsOpen(false)}
 			   >
-				Collapse the chat</button>
+				✖
+				</button>
 			</div>
 			
 			{messages.length === 0 && (
@@ -112,14 +122,6 @@ const Chatbot = () => {
 			<div className="messages-container">
 				{messages.map((msg, index) => (
 					<div key={index} className={`message ${msg.type}`}>
-						{msg.type === "chatbot" && (
-							<img 
-								src={chatbotLogo} 
-								alt="Chatbot Logo" 
-								className="chatbot-logo-message" />
-							)}
-						{/* <p>{`message ~${msg.type}~`}</p> */}
-						{/* {msg.text} */}
 						<span dangerouslySetInnerHTML={{ __html: formatMarkdown(msg.text) }} />
 					</div>
 				))}
@@ -137,7 +139,10 @@ const Chatbot = () => {
 					className="chatbot-input"
 					rows="1"
 				/>
-				<button type="submit" className="send-button">↑</button>
+				<button type="submit" className="send-button">
+					<img src={sendButton} alt="Send"/>
+				</button>
+
 				</div>
 			</form>
 		  </div>

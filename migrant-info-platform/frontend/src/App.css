@@ -107,7 +107,7 @@
 
 
 body {
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 html, #root {
