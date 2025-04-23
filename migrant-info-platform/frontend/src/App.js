@@ -9,12 +9,11 @@ import CategoryCardsContainer from "./components/CategoryCardsContainer/Category
 import Chatbot from "./components/Chatbot/Chatbot.jsx";
 
 import homepageImg from './assets/images/lt3.jpg';
-// HOMEPAGE_IMG_PATH = "./assets/images/vilnius.jpg";
 
 function App() {
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <div className="homepage-img-container text-center mb-4">
         <img src={homepageImg} className="img-fluid" alt="Vilnius"></img>
         <div className="overlay-content">

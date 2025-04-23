@@ -17,8 +17,6 @@
 }
 
 .App-header {
-  /* background-color: #282c34; */
-  background-color: #D7BDA6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -47,12 +45,26 @@
   display: block;
   width: 100%;
   margin-bottom: 4rem;
+  overflow: hidden;
+  z-index: 2;
 }
 
 .homepage-img-container img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.homepage-img-container::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+  z-index: 0;
+  pointer-events: none;
 }
 
 #web-title {
@@ -82,14 +94,13 @@
 
 .overlay-content p {
   color: rgba(255, 255, 255, 0.718);
-  /* color: #34D399; */
   margin-top: 6rem;
   max-width: 45vw;
   font-size: 1.5rem;
 }
 
 .CategoryCardsContainer {
-  margin-top: -15rem;
+  margin-top: -10rem;
   z-index: 10;
   position: relative;
 }
