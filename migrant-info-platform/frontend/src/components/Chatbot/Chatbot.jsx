@@ -3,6 +3,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Chatbot.css";
 import chatbotLogo from "../../assets/images/chatbot-logo.png";
+import ChatbotPopover from './ChatbotPopover';
 
 import { marked } from "marked";
 import DOMPurify from "dompurify";
@@ -147,6 +148,7 @@ const Chatbot = () => {
 			</form>
 		  </div>
 		)}
+		<ChatbotPopover />
 	  </>
 	);
   }

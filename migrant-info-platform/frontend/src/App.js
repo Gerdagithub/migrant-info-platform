@@ -7,6 +7,7 @@ import { WEB_NAME } from './constants.js';
 import Navbar from "./components/Navbar/Navbar.jsx"
 import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx"
 import Chatbot from "./components/Chatbot/Chatbot.jsx";
+import ChatbotPopover from './components/Chatbot/ChatbotPopover.jsx';
 
 import homepageImg from './assets/images/lt3.jpg';
 
@@ -32,6 +33,7 @@ function App() {
         <CategoryCardsContainer />
       </div>
       <Chatbot/>
+      {/* <ChatbotPopover /> */}
     </>
   );
 }
