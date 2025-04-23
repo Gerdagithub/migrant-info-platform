@@ -8,16 +8,30 @@ import Navbar from "./components/Navbar/Navbar.jsx"
 import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx"
 import Chatbot from "./components/Chatbot/Chatbot.jsx";
 
+import homepageImg from './assets/images/lt3.jpg';
+// HOMEPAGE_IMG_PATH = "./assets/images/vilnius.jpg";
+
 function App() {
   return (
     <>
       <Navbar/>
-      <h1 
-        id="web-title"
-        className='text-center mt-5 mb-3'>
-          {WEB_NAME}
-      </h1>
-      <CategoryCardsContainer/>
+      <div className="homepage-img-container text-center mb-4">
+        <img src={homepageImg} className="img-fluid" alt="Vilnius"></img>
+        <div className="overlay-content">
+          <h1 id="web-title" className="text-center">
+            {WEB_NAME}
+          </h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
+            industry. Lorem Ipsum has been the industry's standard dummy 
+            text ever since the 1500s, when an unknown printer took a galley 
+            of type and scrambled
+          </p>
+        </div>
+      </div>
+      
+      <div className="CategoryCardsContainer">
+        <CategoryCardsContainer />
+      </div>
       <Chatbot/>
     </>
   );

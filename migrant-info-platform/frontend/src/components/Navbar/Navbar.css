@@ -1,7 +1,7 @@
 @import '../../assets/styles/variables.css';
 
 .custom-navbar {
-	background-color: var(--secondary-color);
+	/* background-color: var(--secondary-color); */
 }
 
 .navbar-category-element {

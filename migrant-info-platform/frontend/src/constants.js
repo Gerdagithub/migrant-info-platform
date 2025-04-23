@@ -1,4 +1,4 @@
-export const WEB_NAME = "CITIZENSHIP INTEGRATION IN LITHUANIA";
+export const WEB_NAME = "WELCOME TO LITHUANIA";
 export const CATEGORY_NAME_LIST = [
 	"Taxes", 
 	"Health", 
