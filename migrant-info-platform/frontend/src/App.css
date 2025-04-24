@@ -84,9 +84,44 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 3rem;
+  font-size: 2.75rem;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
 }
+
+.homepage-title {
+  font-family: var(--primary-font-family);
+  font-weight: 600;
+  color: white;
+  font-size: 2.75rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+
+.homepage-text-separator {
+  width: 6rem;
+  height: 3px;
+  background-color: white;
+  margin: 1rem auto;
+  border: none;
+  opacity: 0.8;
+}
+
+
+/* .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;             
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;     
+  z-index: 1;
+} */
 
 .overlay-content {
   position: absolute;
@@ -94,19 +129,31 @@
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;                /* Flexbox to center title */
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  pointer-events: none;         /* So clicks pass through if needed */
+  pointer-events: none;
   z-index: 1;
+  text-align: center;
 }
 
-.overlay-content p {
+
+/* .overlay-content p {
   color: rgba(255, 255, 255, 0.718);
   margin-top: 6rem;
   max-width: 45vw;
+  font-size: 1.7rem;
+  padding: 0 10rem;
+} */
+
+.homepage-subtitle {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
+  max-width: 800px;
+  padding: 0 2rem;
 }
+
 
 .CategoryCardsContainer {
   margin-top: -10rem;
@@ -127,4 +174,10 @@ html, #root {
 body, html {
   margin: 0;
   padding: 0;
+}
+
+@media (min-width: 768px) {
+  .homepage-text-separator {
+    width: 140px;
+  }
 }

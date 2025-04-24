@@ -17,14 +17,16 @@ function App() {
         <Navbar/>
         <img src={homepageImg} className="img-fluid" alt="Vilnius"></img>
         <div className="overlay-content">
-          <h1 id="web-title" className="text-center">
+          {/* <h1 id="web-title" className="text-center">
             {WEB_NAME}
           </h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting 
-            industry. Lorem Ipsum has been the industry's standard dummy 
-            text ever since the 1500s, when an unknown printer took a galley 
-            of type and scrambled
-          </p>
+          <hr className="homepage-text-separator" />
+          <p>Access practical tools and up-to-date info for work, health, taxes, and residency — all in one place.
+          </p> */}
+          <h1 className="homepage-title">MADE FOR MIGRANTS, AT EVERY STAGE OF LIFE IN LITHUANIA</h1>
+          {/* <hr className="homepage-text-separator" /> */}
+          <p className="homepage-subtitle">Access practical tools and up-to-date info for work, health, taxes, and residency — all in one place.</p>
+
         </div>
       </div>
       
