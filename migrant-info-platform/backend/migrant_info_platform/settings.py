@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Local apps
     'core.apps.CoreConfig',
     'chatbot.apps.ChatbotConfig',
+    'categories',
 ]
 
 MIDDLEWARE = [
