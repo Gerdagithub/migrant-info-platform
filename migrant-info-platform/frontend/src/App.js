@@ -10,7 +10,22 @@ import Chatbot from "./components/Chatbot/Chatbot.jsx";
 
 import homepageImg from './assets/images/lt3.jpg';
 
+import CategoryPage from './components/CategoryPage';
+
+
 function App() {
+  const path = window.location.pathname;
+  const categoryMatch = path.match(/^\/categories\/([a-z0-9-]+)$/);
+
+  if (categoryMatch) {
+    const slug = categoryMatch[1]; // extract slug from URL
+    return <CategoryPage slug={slug} />;
+  }
+
+  if (path === '/categories/taxes') {
+    return <CategoryPage slug="taxes" />;
+  }
+
   return (
     <>
       <div className="homepage-img-container text-center mb-4">

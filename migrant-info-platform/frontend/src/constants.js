@@ -7,10 +7,10 @@ export const CATEGORY_NAME_LIST = [
 ];
 
 export const CATEGORY_LINK_LIST = [
-	"#", 
-	"#", 
-	"#", 
-	"#", 
+	"/categories/taxes", 
+	"/categories/health", 
+	"/categories/residency", 
+	"/categories/work", 
 ];
 
 
