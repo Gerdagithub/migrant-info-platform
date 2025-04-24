@@ -1,17 +1,5 @@
 :root {
-	/* --root-bg-color: #F3F4F6; */
 	--gray-color: #F3F4F6;
-	/* --soft-emerald-color: #34D399; */
-	/* --emerald-color: #10B981; */
-	/* --emerald-color: #14a273; */
-	/* --emerald-color: #004d73; */
-	/* --emerald-color: #6366F1; */
-	/* --emerald-color: #206A5D; */
-	/* --soft-black-color: #121212; */
 	--soft-black-color: #2A2A2A;
-	/* --primary-color: #86DAF9; */
-	/* --secondary-color: rgba(134, 218, 249, 0.5); */
 	--primary-text-color: black;
-	/* --primary-font-family: "sans-serif"; */
-	/* --primary-font-family: 'Noto Sans'; */
 }

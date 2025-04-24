@@ -7,15 +7,14 @@ import { WEB_NAME } from './constants.js';
 import Navbar from "./components/Navbar/Navbar.jsx"
 import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx"
 import Chatbot from "./components/Chatbot/Chatbot.jsx";
-import ChatbotPopover from './components/Chatbot/ChatbotPopover.jsx';
 
 import homepageImg from './assets/images/lt3.jpg';
 
 function App() {
   return (
     <>
-      {/* <Navbar/> */}
       <div className="homepage-img-container text-center mb-4">
+        <Navbar/>
         <img src={homepageImg} className="img-fluid" alt="Vilnius"></img>
         <div className="overlay-content">
           <h1 id="web-title" className="text-center">
@@ -33,7 +32,6 @@ function App() {
         <CategoryCardsContainer />
       </div>
       <Chatbot/>
-      {/* <ChatbotPopover /> */}
     </>
   );
 }
