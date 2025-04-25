@@ -41,7 +41,6 @@
 
 .homepage-img-container {
   position: relative;
-  /* display: inline-block; */
   display: block;
   width: 100%;
   margin-bottom: 4rem;
@@ -109,20 +108,6 @@
   opacity: 0.8;
 }
 
-
-/* .overlay-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;             
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;     
-  z-index: 1;
-} */
-
 .overlay-content {
   position: absolute;
   top: 0;
@@ -138,15 +123,6 @@
   text-align: center;
 }
 
-
-/* .overlay-content p {
-  color: rgba(255, 255, 255, 0.718);
-  margin-top: 6rem;
-  max-width: 45vw;
-  font-size: 1.7rem;
-  padding: 0 10rem;
-} */
-
 .homepage-subtitle {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
@@ -154,13 +130,11 @@
   padding: 0 2rem;
 }
 
-
 .CategoryCardsContainer {
   margin-top: -10rem;
   z-index: 10;
   position: relative;
 }
-
 
 body {
   overflow: hidden;

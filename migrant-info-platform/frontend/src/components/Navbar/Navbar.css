@@ -11,7 +11,6 @@
 	width: 100%;
 	margin-top: 30px;
 	padding: 0 5rem;
-	/* padding-left: 8rem; */
 }
 
 div.container-fluid.navbar-text-container{
@@ -26,14 +25,12 @@ div.container-fluid.navbar-text-container{
 
 .navbar-brand {
 	font-weight: bold;
-	/* font-size: 1.25rem; */
 	font-size: 2rem;
 	color: var(--gray-color);
 	text-transform: uppercase;
 }
 
 .navbar-category-element {
-	/* font-size: large; */
 	font-size: var(--navbar-font-size);
 	font-weight: 500;
 	color: var(--gray-color);
@@ -47,13 +44,11 @@ div.container-fluid.navbar-text-container{
 
 .navbar-category-element a:hover {
 	color: var(--category-color);
-	/* border-bottom: 2px solid var(--category-color); */
 	border-bottom: 2px solid color-mix(in srgb, var(--category-color), white 50%);
 	color: color-mix(in srgb, var(--category-color), white 50%);
 	transition: color 0.3s ease, border-color 0.3s ease;
-  }
+}
   
-
 #navbarNav {
 	display: flex;
 	gap: 1.5rem;
@@ -62,30 +57,20 @@ div.container-fluid.navbar-text-container{
 #navbarNav .nav-item {
 	display: flex;
 	align-items: center;
-  }
+}
   
-
 #navbarNav .nav-item:not(:first-child) .nav-link::before {
 	/* content: "|"; */
 	margin: 0 3rem;
 	color: var(--gray-color);
 	font-weight: 500;
-  }
+}
 
-  .nav-separator {
+.nav-separator {
 	display: flex;
 	align-items: center;
 	padding: 0 1rem;
 	color: var(--gray-color);
 	font-weight: 500;
 	font-size: var(--navbar-font-size);
-  }
-  
-  
-/* a.nav-link, .nav-separator {
-	margin-left: 0px;
-	margin-right: 0px;
-	padding-left: 0px !important;
-	padding-right: 0px !important;
 }
-   */

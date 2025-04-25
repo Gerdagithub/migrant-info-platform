@@ -1,0 +1,133 @@
+@import '../assets/styles/variables.css';
+
+.category-introduction {
+	background-color: var(--soft-black-color);
+	min-height: 8rem;
+	height: auto;
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	z-index: 2;
+}
+  
+  .category-text-wrapper {
+	padding: 0 var(--navbar-side-padding);
+	padding-top: 5rem;
+	padding-bottom: 3rem;
+  }
+  
+  .category-title {
+	text-align: center;
+	color: var(--soft-black-color);
+	font-size: 3rem;
+	font-weight: bold;
+	margin-bottom: 4rem;
+	margin-top: 6rem;
+	text-transform: uppercase;
+  }
+  
+  .category-description {
+	text-align: left;
+	color: var(--gray-color);
+	font-size: 1.5rem;
+	padding-bottom: 5rem;
+  }
+
+.faq-categories-navbar {
+	padding: 1rem var(--navbar-side-padding);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.faq-categories-navbar button {
+	font-size: 1.75rem;
+	text-transform: capitalize;
+	margin: auto 2rem;
+  }
+
+.faq-category {
+	margin: 2rem 15rem;
+	padding: 0px;
+	padding-bottom: 10rem;
+}
+
+  
+.accordion-body {
+	background-color: #f9f9f9;
+	color: var(--soft-black-color);
+	font-size: 1.4rem;
+	border: 1px var(--category-color) solid;
+	border-left: 5px var(--category-color) solid;
+	padding: 1.25rem;
+}
+
+.accordion-button {
+	background-color: var(--soft-black-color);
+	color: var(--gray-color);
+	font-size: 1.5rem;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+.accordion-button::after {
+	filter: brightness(0) invert(1); /* makes black arrow white */
+}
+  
+  
+.accordion-button:not(.collapsed) {
+	background-color: var(--category-color);
+	color: var(--gray-color);
+	border: none;
+	font-weight: bold;
+}
+
+.accordion-collapse {
+	transition: height 0.25s ease-in-out;
+}
+
+.accordion-button:focus {
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.accordion-item {
+	margin-bottom: 1rem;
+	overflow: hidden;
+}
+
+.faq-categories-navbar button {
+	box-shadow: none !important;
+	outline: none !important;
+	border: none;
+}
+  
+.faq-tab-btn {
+	font-size: 1.75rem;
+	text-transform: capitalize;
+	margin: 0 1rem;
+	background-color: transparent;
+	color: var(--soft-black-color);
+	border: none;
+	transition: all 0.3s ease;
+}
+
+.faq-tab-btn.active-faq-tab {
+	background-color: transparent;
+	color: var(--category-color);
+	font-weight: bold;
+	border-radius: 0;
+	padding: 0.3rem 1rem;
+	box-shadow: 0 0 5px var(--category-color);
+
+	border-bottom: 2px solid var(--category-color);
+	color: var(--category-color);
+	transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  
+body {
+	overflow: visible !important;
+}

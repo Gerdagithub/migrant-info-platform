@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     
     # Third-party
     'rest_framework',
+    'ckeditor',
+    'adminsortable2',
 
     # Local apps
     'core.apps.CoreConfig',
