@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import "./CategoryPage.css";
 import Navbar from './Navbar/Navbar';
-import { CATEGORY_COLOR_LIST, CATEGORY_NAME_LIST } from '../constants';
+import { CATEGORY_COLOR_LIST, CATEGORY_NAME_LIST,
+  CATEGORY_LOGO_LIST_WHITE
+ } from '../constants';
 import FaqCategoriesCarousel from './FaqCategoriesCarousel';
 
 export default function CategoryPage({ slug }) {
@@ -65,19 +67,40 @@ export default function CategoryPage({ slug }) {
   const cat_color = CATEGORY_COLOR_LIST[index] || 'red';
   console.log(cat_color)
 
+  const cat_logo_path = CATEGORY_LOGO_LIST_WHITE[index];
+  // const logoEl = document.getElementById('category-logo');
+  // logoEl.src = cat_logo_path;
+
   return (
     <>
-      	<div className="category-introduction" >
+      	<div className="category-introduction"
+        style={{ '--category-color': cat_color }}>
         <Navbar />
-        {/* <div className="category-text-wrapper">
-			<h1 className="category-title">{category.name}</h1>
-			<div
+        <div className="category-intro-wrapper">
+          <img 
+            id="category-logo"
+            src={cat_logo_path}
+            alt={`${category.name} logo`}
+            className="category-logo"
+          />
+
+          <div className='intro-text-wrapper'>
+            <h1 className="category-title">{category.name}</h1>
+            <div
+              className="category-description"
+              dangerouslySetInnerHTML={{ __html: category.description }}
+            />
+            </div>
+          </div>
+          
+
+      	</div>
+		{/* <h1 className="category-title">{category.name}</h1>
+    <div
 				className="category-description"
 				dangerouslySetInnerHTML={{ __html: category.description }}
-			/>
-        </div> */}
-      	</div>
-		<h1 className="category-title">{category.name}</h1>
+			/> */}
+
 
 
       {/* <nav className="navbar navbar-expand-sm faq-categories-navbar">
