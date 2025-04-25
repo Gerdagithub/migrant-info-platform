@@ -5,14 +5,11 @@ import 'bootstrap/dist/js/bootstrap.min.js'; // sometimes may be needed
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { WEB_NAME } from './constants.js';
-
 import Navbar from "./components/Navbar/Navbar.jsx"
 import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx"
 import Chatbot from "./components/Chatbot/Chatbot.jsx";
 
 import homepageImg from './assets/images/lt3.jpg';
-
 import CategoryPage from './components/CategoryPage';
 
 
