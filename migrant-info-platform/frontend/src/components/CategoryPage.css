@@ -3,7 +3,7 @@
 .category-introduction {
 	/* background-color: var(--soft-black-color); */
 	background-color: var(--category-color);
-	background-color: color-mix(in srgb, var(--category-color), black 20%);
+	background-color: color-mix(in srgb, var(--category-color), black 40%);
 
 	min-height: 8rem;
 	height: auto;
