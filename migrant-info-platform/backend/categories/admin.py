@@ -16,7 +16,10 @@ class FAQCategoryInline(SortableInlineAdminMixin, admin.TabularInline):
 
 @admin.register(Category)
 class CategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
-    ordering = ["name"]            # must match Category.Meta.ordering
+    fields = ('order', 'name', 'slug', 'description')
+    # fields = ("slug", "description")
+    # ordering = ["name"]            # must match Category.Meta.ordering
+    ordering = ["order"]
     prepopulated_fields = {"slug": ("name",)}
     inlines = [FAQCategoryInline]
 

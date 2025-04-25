@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import './assets/bootstrap/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js'; // sometimes may be needed
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { WEB_NAME } from './constants.js';
 
 import Navbar from "./components/Navbar/Navbar.jsx"

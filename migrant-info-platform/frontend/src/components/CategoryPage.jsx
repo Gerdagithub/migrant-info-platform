@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import "./CategoryPage.css";
 import Navbar from './Navbar/Navbar';
 import { CATEGORY_COLOR_LIST, CATEGORY_NAME_LIST } from '../constants';
+import FaqCategoriesCarousel from './FaqCategoriesCarousel';
 
 export default function CategoryPage({ slug }) {
   const [category, setCategory] = useState(null);
@@ -79,27 +80,25 @@ export default function CategoryPage({ slug }) {
 		<h1 className="category-title">{category.name}</h1>
 
 
-      	<nav className="navbar navbar-expand-sm faq-categories-navbar">
+      {/* <nav className="navbar navbar-expand-sm faq-categories-navbar">
         {category.faq_categories.map(section => (
-        //   <button
-        //     key={section.faq_title}
-        //     className="btn"
-        //     onClick={() => setSelectedFaq(section.faq_title)}
-        //     style={{ fontWeight: selectedFaq === section.faq_title ? 'bold' : 'normal' }}
-        //   >
-        //     {section.faq_title}
-        //   </button>
-		<button
-			key={section.faq_title}
-			className={`btn faq-tab-btn ${selectedFaq === section.faq_title ? 'active-faq-tab' : ''}`}
-			onClick={() => setSelectedFaq(section.faq_title)}
-			style={{ '--category-color': cat_color }}
-		>
-			{section.faq_title}
-		</button>
+        <button
+          key={section.faq_title}
+          className={`btn faq-tab-btn ${selectedFaq === section.faq_title ? 'active-faq-tab' : ''}`}
+          onClick={() => setSelectedFaq(section.faq_title)}
+          style={{ '--category-color': cat_color }}
+        >
+          {section.faq_title}
+        </button>
 
         ))}
-      </nav>
+      </nav> */}
+      <FaqCategoriesCarousel
+        category={category}
+        selectedFaq={selectedFaq}
+        setSelectedFaq={setSelectedFaq}
+        cat_color={cat_color}
+      />
 
       {category.faq_categories
         .filter(section => section.faq_title === selectedFaq || selectedFaq === null)
@@ -111,10 +110,10 @@ export default function CategoryPage({ slug }) {
               {/* <p>{section.description}</p> */}
 
              	<div 
-					className="accordion" 
-					id={`faqAccordion-${safeTitle}`}
-					style={{ '--category-color': cat_color }}
-				>
+                className="accordion" 
+                id={`faqAccordion-${safeTitle}`}
+                style={{ '--category-color': cat_color }}
+              >
                 {section.faqs.map((faq, i) => {
                   const collapseId = `collapse-${safeTitle}-${i}`;
                   const headingId = `heading-${safeTitle}-${i}`;

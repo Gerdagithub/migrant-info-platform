@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 
 class Category(models.Model):
+    order = models.PositiveIntegerField(default=0, db_index=True)
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True, blank=True)
     description = RichTextField()
@@ -10,7 +11,8 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
-        ordering = ["name"]           # required by SortableAdminMixin
+        # ordering = ["name"]           # required by SortableAdminMixin
+        ordering = ["order"]
 
     def save(self, *args, **kwargs):
         if not self.slug:
