@@ -1,5 +1,5 @@
 .chatbot-popover {
-	position: absolute;
+	position: fixed;
 	bottom: 130px;
 	right: 30px;
 	background-color: #fff;
