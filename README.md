@@ -25,14 +25,20 @@ The admin page can be reached at *http://127.0.0.1:8000/admin*.
 ### Initial setup:
 ```bash
 cd migrant-info-platform/backend/chatbot_service
-python -m venv venv && source venv/bin/activate
+conda init
+source ~/.bashrc
+conda create -n chatbot python=3.9
+conda activate chatbot
 pip install -r requirements.txt
+conda install -c pytorch -c nvidia pytorch=2.7.0 cudatoolkit=11.8 faiss-gpu=1.11.0
+conda install ipykernel
+python -m ipykernel install --user --name chatbot --display-name "Python (chatbot)"
 ```
 
 ### Start:
 ```bash
 cd migrant-info-platform/backend/chatbot_service
-source venv/bin/activate
+conda activate chatbot
 uvicorn main:app --reload --port 5000
 ```
 
