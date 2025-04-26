@@ -266,6 +266,17 @@
 	aspect-ratio: 1 1;
 	display: block;
 	object-fit: contain;
+	transition: filter 0.2s ease;
+}
+
+.send-button:disabled img {
+	opacity: .5;
+	cursor: not-allowed;
+}
+
+.send-button:hover img {
+	/* reduce brightness to 80% of original (20% darker) */
+	filter: brightness(0.8);
 }
 
 @keyframes fadeInSlideUp {

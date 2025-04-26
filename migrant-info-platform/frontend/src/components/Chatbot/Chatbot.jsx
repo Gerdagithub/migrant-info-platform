@@ -4,21 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Chatbot.css";
 import chatbotLogo from "../../assets/images/chatbot-logo.png";
 import ChatbotPopover from './ChatbotPopover';
-
 import { marked } from "marked";
 import DOMPurify from "dompurify";
-
 import sendButton from "../../assets/images/send-button.png";
 
-
-// << Add this >>
 DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   if (node.tagName === 'A') {
     node.setAttribute('target', '_blank');
     node.setAttribute('rel', 'noopener noreferrer');
   }
 });
-// << end >>
+
 
 const Chatbot = () => {
   // Toggle chat window
@@ -165,7 +161,11 @@ const Chatbot = () => {
                 className="chatbot-input"
                 rows="1"
               />
-              <button type="submit" className="send-button">
+              <button 
+                type="submit" 
+                className="send-button"
+                disabled={!question.trim()}
+              >
                 <img src={sendButton} alt="Send" />
               </button>
             </div>
