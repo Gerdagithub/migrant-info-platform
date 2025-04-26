@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import './assets/bootstrap/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import Navbar from "./components/Navbar/Navbar.jsx";
 import CategoryCardsContainer from "./components/CategoryCardsContainer/CategoryCardsContainer.jsx";

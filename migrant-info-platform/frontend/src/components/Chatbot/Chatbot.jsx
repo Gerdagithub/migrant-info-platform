@@ -41,6 +41,18 @@ const Chatbot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [isOpen, messages]);
 
+  useEffect(() => {
+	if (isOpen) {
+	  document.body.classList.add('no-scroll');
+	} else {
+	  document.body.classList.remove('no-scroll');
+	}
+	return () => {
+	  document.body.classList.remove('no-scroll');
+	};
+  }, [isOpen]);
+  
+
   // Handle form submission (send question)
   const handleSubmit = async (e) => {
     e.preventDefault();

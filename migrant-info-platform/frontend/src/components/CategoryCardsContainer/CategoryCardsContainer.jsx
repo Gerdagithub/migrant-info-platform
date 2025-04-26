@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./CategoryCardsContainer.css";
+import "../../assets/styles/globals.css"
 import {
   CATEGORY_NAME_LIST,
   CATEGORY_DESCRIPTION_LIST,
