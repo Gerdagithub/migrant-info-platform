@@ -56,7 +56,7 @@ const ChatbotPopover = () => {
       />
       <div className="chatbot-message">
         <p>
-          <strong>Hi, I'm Tomas!</strong><br />
+          <strong>Hello, I'm Tomas!</strong><br />
           I can help with taxes, health, residency, and work in Lithuania.
           Just ask me anything!
         </p>

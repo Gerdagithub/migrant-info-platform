@@ -15,10 +15,17 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   // Current user input
   const [question, setQuestion] = useState("");
-  // Chat history, persisted in sessionStorage
+
+  // Initial chatbot introduction message
+	const initialIntro = { 
+		type: "chatbot", 
+		text: "**Hello, I’m Tomas**\nHelping with taxes, health, residency, and work in Lithuania. I’m here to answer any questions that don’t require personal data. Just ask me anything!" 
+	};
+
+  // Chat history, persisted in sessionStorage; default to intro message
   const [messages, setMessages] = useState(() => {
     const saved = sessionStorage.getItem('chat_messages');
-    return saved ? JSON.parse(saved) : [];
+    return saved ? JSON.parse(saved) : [initialIntro];
   });
 
   const textareaRef = useRef(null);
@@ -103,16 +110,6 @@ const Chatbot = () => {
             </div>
             <button className="collapse-chat-button" onClick={() => setIsOpen(false)}>✖</button>
           </div>
-
-          {/* Initial prompt when no messages */}
-          {messages.length === 0 && (
-            <>
-              <div className="chatbot-initial-title">Ask me a question</div>
-              <p id="chatbot-introduction">
-                Hello! I help to answer questions that do not require personal data.
-              </p>
-            </>
-          )}
 
           {/* Messages container */}
           <div className="messages-container">
