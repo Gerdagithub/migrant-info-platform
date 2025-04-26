@@ -44,24 +44,37 @@ uvicorn main:app --reload --port 5000
 
 ## Run ngrok:
 ### Initial setup:
-1. Log in at https://dashboard.ngrok.com, copy your auth token (e.g. 2Xy3Z...9AbC).
-2. Run:
+1. Log in to [ngrok dashboard](https://dashboard.ngrok.com), and copy your auth token (e.g., `2Xy3Z...9AbC`).
+2. Run the following commands to download and set up ngrok:
 ```
+cd migrant-info-platform/backend/chatbot_service
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-amd64.zip
 unzip ngrok-stable-linux-amd64.zip
 ./ngrok http 5000
-./ngrok config add-authtoken 2w2yyYMQcE1dLLsu6oehTgiVcKM_7NEFMzaC5qchBpJ7zTDhm
+./ngrok config add-authtoken <your token>
 ./ngrok http 5000
 ```
 
 ### Start:
+Start ngrok to expose your local server:
 ```
+cd migrant-info-platform/backend/chatbot_service
 ~/ngrok http 5000
 ```
-This lets to reach chatbot service (AI logic) via public link. You will need to change the link in Django chatbot app which is used by chatbot to send queries and get responses. Just copy and paste the link from ngrok interface _Forwarding_ section.
-For example:
-_Forwarding                    https://f97a-83-171-44-52.ngrok-free.app -> http://localhost:5000  _
-The chatbot AI logic is accessible through _https://f97a-83-171-44-52.ngrok-free.app_
+
+### Access the Chatbot Service:
+Once ngrok is running, you will be able to access the chatbot AI logic via a public link. 
+
+1. In your Django chatbot app, update the link used by the chatbot to send queries and receive responses.
+2. Copy the public link provided in the _Forwarding_ section of the ngrok interface.
+
+**Example:**
+
+```
+Forwarding                    https://f97a-83-171-44-52.ngrok-free.app -> http://localhost:5000
+```
+
+The chatbot AI logic can now be accessed through _https://f97a-83-171-44-52.ngrok-free.app_.
 
 ## Running Frontend
 ### Initial setup:
