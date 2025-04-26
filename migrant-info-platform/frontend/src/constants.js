@@ -37,8 +37,8 @@ export const CATEGORY_LOGO_LIST_HOVERED = [
 ];
 
 export const CATEGORY_DESCRIPTION_LIST = [
-	'Learn how to file and pay your taxes.',
-	'Find out how to register for and use health services.',
-	'Step-by-step guide to declaring your income.',
-	'Everything on applying & renewing permits.',
+	'Learn how to declare income, file tax forms, and stay compliant.',
+	'Find out how to get insured and access healthcare in Lithuania.',
+	'Understand how to apply, register your address, and renew your stay.',
+	'Explore job options, contracts, permits, and workers’ rights.',
   ];

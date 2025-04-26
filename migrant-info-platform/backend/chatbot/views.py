@@ -5,15 +5,14 @@ from django.http import JsonResponse
 import requests
 
 # Create your views here.
-@api_view(['POST']) #####
+@api_view(['POST']) 
 def chatbot_response(request):
     user_question = request.data.get("question", "")
     print("Forwarding question to external chatbot server...")
     try:
         # Forward the request to the external FastAPI server
         response = requests.post(
-            # "https://03db-83-171-44-52.ngrok-free.app/query",
-            "https://8de9-83-171-44-52.ngrok-free.app/query",
+            "https://f97a-83-171-44-52.ngrok-free.app/query",
             json={"question": user_question},
             timeout=120
         )
