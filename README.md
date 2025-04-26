@@ -42,6 +42,13 @@ conda activate chatbot
 uvicorn main:app --reload --port 5000
 ```
 
+#### In another terminal run:
+```
+~/ngrok http 5000
+```
+This lets to reach chatbot service (AI logic) via public link
+
+
 ## Running Frontend
 ### Initial setup:
 ```bash
