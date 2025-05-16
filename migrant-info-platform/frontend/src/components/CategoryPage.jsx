@@ -13,7 +13,8 @@ export default function CategoryPage({ slug }) {
   const [selectedFaq, setSelectedFaq] = useState(null);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/categories/${slug}/`)
+    // fetch(`http://127.0.0.1:8000/api/categories/${slug}/`)
+    fetch(`http://192.250.230.226:8000/api/categories/${slug}/`)
       .then(res => {
         if (!res.ok) {
           setNotFound(true);

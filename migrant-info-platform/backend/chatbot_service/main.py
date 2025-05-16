@@ -17,6 +17,12 @@ async def query(request: Request):
     For now chatbot is accessible only though terminal.
     Example prompt:
     curl -X POST http://localhost:5000/query -H "Content-Type: application/json" -d '{"question": "What is TRP?"}'
+    
+    curl -X POST http://localhost:5000/query \
+     -H "Content-Type: application/json" \
+     -d '{"question": "Hellloo"}'
+
+    
     '''
     body = await request.json()
     question = body.get("question")

@@ -7,6 +7,8 @@ import ChatbotPopover from './ChatbotPopover';
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import sendButton from "../../assets/images/send-button.png";
+import { postWithRetry } from "../utils/retryAxios";
+
 
 DOMPurify.addHook('afterSanitizeAttributes', (node) => {
   if (node.tagName === 'A') {
@@ -61,32 +63,90 @@ const Chatbot = () => {
   }, [isOpen]);
   
   // Handle form submission (send question)
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const trimmed = question.trim();
+  //   if (!trimmed) return;
+
+  //   // Add user message
+  //   const newMessages = [...messages, { type: "user", text: trimmed }];
+  //   setMessages(newMessages);
+  //   setQuestion("");
+  //   setIsLoading(true);
+
+  //   try {
+  //     const res = await axios.post(
+  //       "/chatbot/chatbot_response/", 
+  //       { question: trimmed },
+  //       { timeout: 60000 }
+  //     );
+  //     const cleanAnswer = res.data.answer.trim();
+  //     setMessages(prev => [...newMessages, { type: "chatbot", text: cleanAnswer }]);
+  //   } catch (error) {
+  //     setMessages(prev => [...newMessages, { type: "chatbot", text: "Error communicating with the server." }]);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+
+  //   // Reset textarea height
+  //   if (textareaRef.current) {
+  //     textareaRef.current.style.height = "40px";
+  //   }
+  // };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const trimmed = question.trim();
-    if (!trimmed) return;
+  e.preventDefault();
+  const trimmed = question.trim();
+  if (!trimmed) return;
 
-    // Add user message
-    const newMessages = [...messages, { type: "user", text: trimmed }];
-    setMessages(newMessages);
-    setQuestion("");
-    setIsLoading(true);
+  const newMessages = [...messages, { type: "user", text: trimmed }];
+  setMessages(newMessages);
+  setQuestion("");
+  setIsLoading(true);
 
-    try {
-      const res = await axios.post("/chatbot/chatbot_response/", { question: trimmed });
-      const cleanAnswer = res.data.answer.trim();
-      setMessages(prev => [...newMessages, { type: "chatbot", text: cleanAnswer }]);
-    } catch (error) {
-      setMessages(prev => [...newMessages, { type: "chatbot", text: "Error communicating with the server." }]);
-    } finally {
-      setIsLoading(false);
-    }
-
-    // Reset textarea height
+//   try {
+//     const res = await axios.post(
+//       "/chatbot/chatbot_response/",
+//       { question: trimmed },
+//       { timeout: 60000 }    // ← wait up to 60 s
+//     );
+//     const cleanAnswer = res.data.answer.trim();
+//     setMessages(prev => [...newMessages, { type: "chatbot", text: cleanAnswer }]);
+//   } catch (error) {
+//     console.error("Chatbot request failed:", error);
+//     const msg = error.response
+//       ? `Server error: ${error.response.status}`
+//       : error.message;
+//     setMessages(prev => [...newMessages, { type: "chatbot", text: msg }]);
+//   } finally {
+//     setIsLoading(false);
+//     if (textareaRef.current) {
+//       textareaRef.current.style.height = "40px";
+//     }
+//   }
+// };
+try {
+  const res = await postWithRetry(
+    "/chatbot/chatbot_response/",
+    { question: trimmed },
+    { timeout: 60000 },
+    3,      // 3 attempts
+    1000    // start with 1s backoff
+  );
+  const cleanAnswer = res.data.answer.trim();
+  setMessages(prev => [...newMessages, { type: "chatbot", text: cleanAnswer }]);
+} catch (error) {
+  console.error("All retries failed:", error);
+  setMessages(prev => [
+    ...newMessages,
+    { type: "chatbot", text: "Network error—please try again in a moment." }
+  ]);
+}finally {
+    setIsLoading(false);
     if (textareaRef.current) {
       textareaRef.current.style.height = "40px";
     }
-  };
+  }
+};
 
   // Auto-resize textarea on input
   const handleInputChange = (e) => {
