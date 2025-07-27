@@ -34,6 +34,10 @@ Here’s how the Migrant Info Platform is intended to be used:
 
    <img width="1912" height="943" alt="image" src="https://github.com/user-attachments/assets/6f119b92-e17f-4e98-b330-041958e5b4be" />
 
+   https://github.com/user-attachments/assets/2d5fbe6d-bed6-4b4d-9ff0-127e399e64dd
+
+
+
 ---
 
 
