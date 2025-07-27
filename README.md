@@ -1,48 +1,33 @@
-# DCIP
-Digital Citizenship Integration Platform
+# Migrant Information Platform
 
-## Running Backend
+The goal of this project was to create a user-friendly web platform to help migrants in Lithuania access essential legal, tax, and social information. The final vision includes a chatbot trained on official Lithuanian legal sources to assist users in navigating complex procedures.
+
+This repository contains a prototype of the platform. Please note:
+- The chatbot currently uses only [micenter.lt](https://lithuania.iom.int/) (IOM Lithuania) as its data source.
+- The chatbot logic and UI are implemented, but could be improved.
+- The content and category structure are subject to improvement and expansion in future versions.
+
+---
+
+# Running the platform
+
+## 1. Run chatbot server
 ### Initial setup:
 ```bash
-cd migrant-info-platform/backend
-python -m venv venv
-.\venv\Scripts\activate
-pip install django djangorestframework  # If not installed
-pip install django-cors-headers         # If not installed
+cd migrant-info-platform/backend/chatbot_service
+conda env create -f environment.yml
 ```
 
 ### Start:
-```bash
-cd migrant-info-platform/backend
-python manage.py migrate
-python manage.py runserver
-```
-
-The admin page can be reached at *http://127.0.0.1:8000/admin*.
-
-
-## Running chatbot server
-### Initial setup:
 ```bash
 cd migrant-info-platform/backend/chatbot_service
 conda init
 source ~/.bashrc
-conda create -n chatbot python=3.9
-conda activate chatbot
-pip install -r requirements.txt
-conda install -c pytorch -c nvidia pytorch=2.7.0 cudatoolkit=11.8 faiss-gpu=1.11.0
-conda install ipykernel
-python -m ipykernel install --user --name chatbot --display-name "Python (chatbot)"
-```
-
-### Start:
-```bash
-cd migrant-info-platform/backend/chatbot_service
-conda activate chatbot
+conda activate chatbot_service
 uvicorn main:app --reload --port 5000
 ```
 
-## Run ngrok:
+## 2. Run ngrok:
 ### Initial setup:
 1. Log in to [ngrok dashboard](https://dashboard.ngrok.com), and copy your auth token (e.g., `2Xy3Z...9AbC`).
 2. Run the following commands to download and set up ngrok:
@@ -76,18 +61,12 @@ Forwarding                    https://f97a-83-171-44-52.ngrok-free.app -> http:/
 
 The chatbot AI logic can now be accessed through _https://f97a-83-171-44-52.ngrok-free.app_.
 
-## Running Frontend
-### Initial setup:
-```bash
-cd migrant-info-platform/frontend
-npm install
-npm install axios
-npm install bootstrap
-```
+## 3. Run django backend and react frontend
 
-### Start:
-```bash
-npm start
+From the project root directory, run the following command:
 ```
-
-The home page can be reached at *http://localhost:3000*
+docker compose up --build
+```
+This will start both the Django backend and React frontend. You can then access the platform through the following URLs:
+- Home page: *http://localhost:3000*
+- Admin page: *http://localhost:8000/admin*.
