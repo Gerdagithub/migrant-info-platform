@@ -9,7 +9,33 @@ This repository contains a prototype of the platform. Please note:
 
 ---
 
-# Running the platform
+# Demonstration
+Here’s how the Migrant Info Platform is intended to be used:
+
+1. **Browse legal topics**  
+   Users start on the homepage, where key legal areas are displayed as clickable category blocks (*Taxes*, *Health*, *Residency* and *Work*). Clicking on a category routes to a page with important information and frequently asked questions.
+
+   <img width="1915" height="945" alt="image" src="https://github.com/user-attachments/assets/5452ea52-2daa-4b51-9e8d-98a8e3a3d606" />
+
+2. **Browse category and it's subcategories (e.g. *General Info*, *Health Insurance*)**
+   
+   <img width="1917" height="947" alt="image" src="https://github.com/user-attachments/assets/6fac5292-520d-4ca4-b910-2f9d836a3229" />
+
+
+4. **Ask questions using the chatbot**  
+   A chatbot assistant is always visible at the bottom of the screen. Users can ask questions like:
+   - “How do I register at Sodra?”
+   - “What documents do I need to extend my permit?”
+   - “How can I declare income earned abroad?”
+
+   The chatbot currently responds using information from [micenter.lt](https://lithuania.iom.int/), and is planned to expand with more sources.
+
+   <img width="1912" height="943" alt="image" src="https://github.com/user-attachments/assets/6f119b92-e17f-4e98-b330-041958e5b4be" />
+
+---
+
+
+# Running the Platform
 
 ## 1. Run chatbot server
 ### Initial setup:
