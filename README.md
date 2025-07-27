@@ -123,6 +123,13 @@ The free plan is sufficient for this prototype, although it is slightly inconven
 ---
 
 # Running the Platform
+Clone the repository and follow the steps below.
+
+## Prerequisities
+Make sure you have the following installed:
+- Miniconda or Anaconda
+- Docker
+- Docker Compose
 
 ## 1. Run Chatbot Server
 ### Initial Setup:
@@ -132,6 +139,7 @@ conda env create -f environment.yml
 ```
 
 ### Start:
+Open terminal and execute:
 ```bash
 cd migrant-info-platform/backend/chatbot_service
 conda init
@@ -154,7 +162,7 @@ unzip ngrok-stable-linux-amd64.zip
 ```
 
 ### Start:
-Start ngrok to expose your local server:
+Start ngrok to expose your local server (in a *new terminal*):
 ```
 ~/ngrok http 5000
 ```
@@ -162,7 +170,7 @@ Start ngrok to expose your local server:
 ### Access the Chatbot Service:
 Once ngrok is running, you will be able to access the chatbot AI logic via a public link. 
 
-1. In your Django chatbot app, update the link used by the chatbot to send queries and receive responses.
+1. In the Django chatbot app, update the link used by the chatbot to send queries and receive responses.
 2. Copy the public link provided in the _Forwarding_ section of the ngrok interface.
 
 **Example:**
@@ -175,16 +183,18 @@ The chatbot AI logic can now be accessed through _https://f97a-83-171-44-52.ngro
 
 ## 3. Run Django Backend and React Frontend
 
-From the project root directory, run the following command:
+From the project root directory, open a new terminala and run:
 ```
 docker compose up --build
 ```
-This will start both the Django backend and React frontend. You can then access the platform through the following URLs:
+This will start both the Django backend and React frontend. 
+
+You can then access the platform via:
 - Home page: *http://localhost:3000*
 - Admin page: *http://localhost:8000/admin*.
 
 ---
 
-❗ All processes (Uvicorn, ngrok, Docker) must be run in separate terminals or as background processes.
-When I had a public IP, I used _tmux_ to manage multiple sessions efficiently.
+❗ *Note:* All processes (Uvicorn, ngrok, Docker) must be run in separate terminals or as background processes.
+When using a public IP, I used _tmux_ to manage multiple sessions efficiently.
 
