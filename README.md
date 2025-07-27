@@ -80,7 +80,31 @@ Things to note:
 - This chatbot is more useful for finding the source of information than for delivering detailed answers. That’s why the RAG approach was particularly effective in this context.
 - The chatbot tends to return more sources than needed compared to the actual content of its response. This could be improved by fine-tuning.
 - It tends to refuse to answer when unsure, rather than hallucinate — which is a good feature, given the importance of accuracy in legal contexts.
-  
+
+
+## Proxy Setup & Public Access (No Longer Active)
+During the prototype testing phase, the website was made publicly accessible by using a custom proxy setup (via FRP - Fast Reverse Proxy) involving three separate machines:
+
+Port Assignments
+- React (frontend) – running on my personal laptop, port 3000
+- Django (backend & admin) – also on my laptop, port 8000
+- FastAPI (chatbot) – running on my university server, exposed as port 5000 locally and 8887 on the remote server
+- Communication tunnel – through a rented VPS from [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans), port 8886
+
+How It Worked
+- When a user accessed the website via the public IP, the hosting server forwarded the request:
+  - To port 3000 on my laptop for the React frontend
+  - To port 8000 if Django admin or database content was needed
+  - To port 8887 on the university server for chatbot processing (FastAPI)
+- This setup allowed users to use the website from anywhere, even though the services were distributed across different machines.
+
+Proxy Configuration
+To enable this communication, I created a ```proxy/``` directory in the codebase that contains:
+- ```frpc_linux_server/``` – proxy config for forwarding chatbot traffic
+- ```frpc_windows/``` – proxy config for routing frontend/backend traffic
+
+⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
+
 ---
 
 # Running the Platform
