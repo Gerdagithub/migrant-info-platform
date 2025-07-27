@@ -20,6 +20,8 @@ Here’s how the Migrant Info Platform is intended to be used:
 2. **Browse category and it's subcategories (e.g. *General Info*, *Health Insurance*)**
    
    <img width="1917" height="947" alt="image" src="https://github.com/user-attachments/assets/6fac5292-520d-4ca4-b910-2f9d836a3229" />
+   
+   https://github.com/user-attachments/assets/23b5f443-5530-4d97-8957-b5cec22f2155
 
 
 4. **Ask questions using the chatbot**  
@@ -96,3 +98,6 @@ docker compose up --build
 This will start both the Django backend and React frontend. You can then access the platform through the following URLs:
 - Home page: *http://localhost:3000*
 - Admin page: *http://localhost:8000/admin*.
+
+
+
