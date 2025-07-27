@@ -103,7 +103,13 @@ To enable this communication, I created a ```proxy/``` directory in the codebase
 - ```frpc_linux_server/``` – proxy config for forwarding chatbot traffic
 - ```frpc_windows/``` – proxy config for routing frontend/backend traffic
 
-⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
+##### ⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
+##### ⚠️ This feature is no longer active because I don't want to pay for the VPS 😅
+
+
+## University Server and Local Laptop Communication
+The chatbot service (running on my university server) and the Django/React services (running on my local laptop) communicate via ngrok.
+The free plan is sufficient for this prototype, although it is slightly inconvenient since the public URL changes with each session.
 
 ---
 
