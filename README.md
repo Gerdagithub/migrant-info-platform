@@ -132,7 +132,7 @@ uvicorn main:app --reload --port 5000
 ```
 
 ## 2. Run Ngrok:
-### Initial setup:
+### Initial Setup:
 1. Log in to [ngrok dashboard](https://dashboard.ngrok.com), and copy your auth token (e.g., `2Xy3Z...9AbC`).
 2. Run the following commands to download and set up ngrok:
 ```
@@ -147,7 +147,6 @@ unzip ngrok-stable-linux-amd64.zip
 ### Start:
 Start ngrok to expose your local server:
 ```
-cd migrant-info-platform/backend/chatbot_service
 ~/ngrok http 5000
 ```
 
@@ -165,7 +164,7 @@ Forwarding                    https://f97a-83-171-44-52.ngrok-free.app -> http:/
 
 The chatbot AI logic can now be accessed through _https://f97a-83-171-44-52.ngrok-free.app_.
 
-## 3. Run django backend and react frontend
+## 3. Run Django Backend and React Frontend
 
 From the project root directory, run the following command:
 ```
