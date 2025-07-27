@@ -14,7 +14,7 @@ app.add_middleware(
 @app.post("/query")
 async def query(request: Request):
     '''
-    For now chatbot is accessible only though terminal.
+    Chatbot can also be accessed through terminal.
     Example prompt:
     curl -X POST http://localhost:5000/query -H "Content-Type: application/json" -d '{"question": "What is TRP?"}'
     '''
