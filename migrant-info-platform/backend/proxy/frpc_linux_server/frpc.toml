@@ -1,0 +1,9 @@
+serverAddr  = "192.250.230.226"
+serverPort  = 8886
+
+[[proxies]]
+name      = "chatbot_priv"                  
+type      = "tcp"                         
+localIP   = "127.0.0.1"                  
+localPort = 5000        
+remotePort = 8887

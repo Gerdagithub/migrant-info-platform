@@ -1,0 +1,7 @@
+nohup: ignoring input
+[1;34m2025-05-17 10:01:06.563 [I] [sub/root.go:142] start frpc service for config file [./frpc.toml]
+[0m[1;34m2025-05-17 10:01:06.563 [I] [client/service.go:294] try to connect to server...
+[0m[1;34m2025-05-17 10:01:06.670 [I] [client/service.go:286] [457e4aca2d925a52] login to server success, get run id [457e4aca2d925a52]
+[0m[1;34m2025-05-17 10:01:06.671 [I] [proxy/proxy_manager.go:173] [457e4aca2d925a52] proxy added: [chatbot_priv]
+[0m[1;34m2025-05-17 10:01:06.706 [I] [client/control.go:168] [457e4aca2d925a52] [chatbot_priv] start proxy success
+[0m

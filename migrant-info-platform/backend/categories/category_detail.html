@@ -1,0 +1,11 @@
+<h1>{{ category.name }}</h1>
+<p>{{ category.description }}</p>
+<p>{{ category.general_info }}</p>
+
+<h2>Questions & Answers</h2>
+{% for faq in category.faqs.all %}
+  <details>
+    <summary>{{ faq.question }}</summary>
+    <p>{{ faq.answer }}</p>
+  </details>
+{% endfor %}

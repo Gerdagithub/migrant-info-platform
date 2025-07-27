@@ -11,6 +11,10 @@
 # production
 /build
 
+# data
+/migrant-info-platform/backend/chatbot_service/data/cleaned/
+/migrant-info-platform/backend/chatbot_service/data/raw/
+
 # misc
 .DS_Store
 .env.local
@@ -30,3 +34,5 @@ venv/
 
 # Frontend environment
 /migrant-info-platform/frontend/node_modules/
+
+.env

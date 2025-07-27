@@ -1,17 +1,132 @@
 @import '../../assets/styles/variables.css';
 
+:root {
+	--navbar-font-size: 1.5rem;
+}
+
 .custom-navbar {
-	background-color: var(--secondary-color);
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	margin-top: 30px;
+	padding: 0 5rem;
+}
+
+div.container-fluid.navbar-text-container{
+	padding: 0px 0px;
+}
+
+.navbar-text-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar-brand {
+	font-weight: bold;
+	font-size: 2rem;
+	color: var(--gray-color);
+	text-transform: uppercase;
+
+	transition: opacity 0.2s ease;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+	color: var(--gray-color);
+	opacity: 0.7;
 }
 
 .navbar-category-element {
-	font-size: large;
+	font-size: var(--navbar-font-size);
 	font-weight: 500;
+	color: var(--gray-color);
 }
 
 .navbar-category-element a {
-	color: black;
+	color: var(--gray-color);
 	font-family: var(--primary-font-family);
 	text-transform: uppercase;
 }
+
+.navbar-category-element a:hover,
+.navbar-category-element a:active {
+	color: var(--category-color);
+	border-bottom: 2px solid color-mix(in srgb, var(--category-color), white 50%);
+	color: color-mix(in srgb, var(--category-color), white 50%);
+	transition: color 0.3s ease, border-color 0.3s ease;
+}
   
+#navbarNav {
+	display: flex;
+	gap: 1.5rem;
+}
+
+#navbarNav .nav-item {
+	display: flex;
+	align-items: center;
+}
+  
+#navbarNav .nav-item:not(:first-child) .nav-link::before {
+	/* content: "|"; */
+	margin: 0 3rem;
+	color: var(--gray-color);
+	font-weight: 500;
+}
+
+.nav-separator {
+	display: flex;
+	align-items: center;
+	padding: 0 1rem;
+	color: var(--gray-color);
+	font-weight: 500;
+	font-size: var(--navbar-font-size);
+}
+
+
+/* on phones: make everything a bit smaller */
+@media (max-width: 576px) {
+  .custom-navbar {
+    padding: 0.5rem 1rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;      /* shrink the logo text */
+    line-height: 1.2;
+  }
+  .navbar-text-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.875rem;  /* shrink menu links */
+    padding: 0.25rem 0.5rem;
+  }
+  .nav-separator span {
+    display: none;        /* hide separators if you need more room */
+  }
+}
+
+
+
+/* on phones: make everything a bit smaller */
+@media (max-width: 360px) {
+  .custom-navbar {
+    padding: 0.5rem 1rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;      /* shrink the logo text */
+    line-height: 1.2;
+  }
+  .navbar-text-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.875rem;  /* shrink menu links */
+    padding: 0.25rem 0.5rem;
+  }
+  .nav-separator span {
+    display: none;        /* hide separators if you need more room */
+  }
+}

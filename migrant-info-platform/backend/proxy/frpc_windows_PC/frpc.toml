@@ -1,0 +1,16 @@
+serverAddr = "192.250.230.226"
+serverPort = 8886
+
+[[proxies]]
+name = "react_dev"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3000
+remotePort = 3000
+
+[[proxies]]
+name = "django_dev"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8000
+remotePort = 8000

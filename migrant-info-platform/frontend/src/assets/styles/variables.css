@@ -1,7 +1,6 @@
 :root {
-	--root-bg-color: white;
-	--primary-color: #86DAF9;
-	--secondary-color: rgba(134, 218, 249, 0.5);
+	--gray-color: #F3F4F6;
+	--soft-black-color: #2A2A2A;
 	--primary-text-color: black;
-	/* --primary-font-family: 'Noto Sans'; */
+	--navbar-side-padding: 5rem; 
 }
