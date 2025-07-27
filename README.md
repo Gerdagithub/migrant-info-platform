@@ -72,9 +72,15 @@ The chatbot follows a Retrieval-Augmented Generation (RAG) pipeline:
 
 At runtime:
 - The user's question is embedded
-- Similar chunks are retrieved from FAISS
+- 3 the most similar chunks are retrieved from FAISS
 - The context is sent to a language model (Gemma 7B-Instruct) to generate a response
 
+Things to note:
+- While Gemma can understand Lithuanian, it performs significantly better in English, so the chatbot should currently be used in English only.
+- This chatbot is more useful for finding the source of information than for delivering detailed answers. That’s why the RAG approach was particularly effective in this context.
+- The chatbot tends to return more sources than needed compared to the actual content of its response. This could be improved by fine-tuning.
+- It tends to refuse to answer when unsure, rather than hallucinate — which is a good feature, given the importance of accuracy in legal contexts.
+  
 ---
 
 # Running the Platform
