@@ -13,11 +13,12 @@ This repository contains a prototype of the platform. Please note:
 Here’s how the Migrant Info Platform is intended to be used:
 
 1. **Browse legal topics**  
-   Users start on the homepage, where key legal areas are displayed as clickable category blocks (*Taxes*, *Health*, *Residency* and *Work*). Clicking on a category routes to a page with important information and frequently asked questions.
-
+   On the homepage, users can explore key legal categories - _Taxes_, _Health_, _Residency_, and _Work_ - represented as clickable blocks. Each category leads to a dedicated page with relevant information.
+   
    <img width="1915" height="945" alt="image" src="https://github.com/user-attachments/assets/5452ea52-2daa-4b51-9e8d-98a8e3a3d606" />
 
-2. **Browse category and it's subcategories (e.g. *General Info*, *Health Insurance*)**
+2. **Explore categories and subcategories**
+   Within each category, information is further organized into subcategories (e.g., _General Info_, _Health Insurance_), displayed in a carousel format for better UX. Each subcategory features an accordion component containing concise explanations for key topics.
    
    <img width="1917" height="947" alt="image" src="https://github.com/user-attachments/assets/6fac5292-520d-4ca4-b910-2f9d836a3229" />
    
@@ -25,12 +26,14 @@ Here’s how the Migrant Info Platform is intended to be used:
 
 
 3. **Ask questions using the chatbot**  
-   A chatbot assistant is always visible at the bottom of the screen. Users can ask questions like:
+   A chatbot assistant is always accessible at the bottom of the screen. Conversations are preserved during the user's session. If the chat is long, the interface automatically scrolls to the latest message each time the chat is opened.
+   
+   Users can ask questions like:
    - “How do I register at Sodra?”
    - “What documents do I need to extend my permit?”
    - “How can I declare income earned abroad?”
 
-   The chatbot currently responds using information from [micenter.lt](https://lithuania.iom.int/), and is planned to expand with more sources.
+   The chatbot currently responds using information from [micenter.lt](https://lithuania.iom.int/), and is planned to expand with more sources. The video below demonstrates that when the user clicks on a link, they are redirected (in a new tab) to the original source - in this case, the Micenter website section about taxes.
 
    <img width="1912" height="943" alt="image" src="https://github.com/user-attachments/assets/6f119b92-e17f-4e98-b330-041958e5b4be" />
 
@@ -98,10 +101,10 @@ How It Worked
   - To port 8887 on the university server for chatbot processing (FastAPI)
 - This setup allowed users to use the website from anywhere, even though the services were distributed across different machines.
 
-Proxy Configuration
+##### Proxy Configuration
 To enable this communication, I created a ```proxy/``` directory in the codebase that contains:
 - ```frpc_linux_server/``` – proxy config for forwarding chatbot traffic
-- ```frpc_windows/``` – proxy config for routing frontend/backend traffic
+- ```frpc_windows_PC/``` – proxy config for routing frontend/backend traffic
 
 ##### ⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
 ##### ⚠️ This feature is no longer active because I don't want to pay for the VPS 😅
