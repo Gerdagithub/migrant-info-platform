@@ -24,7 +24,7 @@ Here’s how the Migrant Info Platform is intended to be used:
    https://github.com/user-attachments/assets/23b5f443-5530-4d97-8957-b5cec22f2155
 
 
-4. **Ask questions using the chatbot**  
+3. **Ask questions using the chatbot**  
    A chatbot assistant is always visible at the bottom of the screen. Users can ask questions like:
    - “How do I register at Sodra?”
    - “What documents do I need to extend my permit?”
@@ -37,14 +37,50 @@ Here’s how the Migrant Info Platform is intended to be used:
    https://github.com/user-attachments/assets/2d5fbe6d-bed6-4b4d-9ff0-127e399e64dd
 
 
-
 ---
 
 
+# Technical Overview
+## Frontend
+Built with React (JavaScript) and CSS, the frontend provides a clean, accessible UI designed for all users, including those with limited tech experience. It communicates with the Django backend to:
+- Fetch and display categorized content
+- Send user queries to the chatbot API and display its responses
+
+
+## Backend 
+### Admin & Content Management
+The backend is developed using Django, which handles content management and admin control. The default Django admin panel is used, allowing administrators to:
+- Create, edit, delete, and reorder content categories and their sub-items
+- Control the structure of the content displayed on the frontend
+
+Currently, the project uses SQLite as the database, which is the default option for Django development. It stores all content-related data, such as categories, subcategories, and their descriptions.
+
+Some examples of the Django admin interface:
+
+<img width="1362" height="299" alt="image" src="https://github.com/user-attachments/assets/b1fcd7bd-6e15-4598-96fb-782532aca1fb" />
+<img width="1346" height="601" alt="image" src="https://github.com/user-attachments/assets/67202fcb-132b-4049-8fcf-cede2dcf243c" />
+<img width="1348" height="623" alt="image" src="https://github.com/user-attachments/assets/fd8eaea3-0470-4792-bea2-94a3b2edb74f" />
+
+### Chatbot Service
+The chatbot service is implemented using FastAPI and communicates with the Django backend.
+
+The chatbot follows a Retrieval-Augmented Generation (RAG) pipeline:
+- Information is scraped from [micenter.lt](https://lithuania.iom.int/)
+- The raw data is cleaned (e.g., repetitive data, non-informative blocks removed)
+- Text is chunked and enriched with metadata (e.g., source URL)
+- Chunks are embedded using the all-MiniLM-L6-v2 model and stored in a FAISS vector store
+
+At runtime:
+- The user's question is embedded
+- Similar chunks are retrieved from FAISS
+- The context is sent to a language model (Gemma 7B-Instruct) to generate a response
+
+---
+
 # Running the Platform
 
-## 1. Run chatbot server
-### Initial setup:
+## 1. Run Chatbot Server
+### Initial Setup:
 ```bash
 cd migrant-info-platform/backend/chatbot_service
 conda env create -f environment.yml
@@ -59,7 +95,7 @@ conda activate chatbot_service
 uvicorn main:app --reload --port 5000
 ```
 
-## 2. Run ngrok:
+## 2. Run Ngrok:
 ### Initial setup:
 1. Log in to [ngrok dashboard](https://dashboard.ngrok.com), and copy your auth token (e.g., `2Xy3Z...9AbC`).
 2. Run the following commands to download and set up ngrok:
