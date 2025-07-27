@@ -54,7 +54,7 @@ Built with React (JavaScript) and CSS, the frontend provides a clean, accessible
 ### Admin & Content Management
 The backend is developed using Django, which handles content management and admin control. The default Django admin panel is used, allowing administrators to:
 - Create, edit, delete, and reorder content categories and their sub-items
-- Control the structure of the content displayed on the frontend
+- Control the content displayed on the frontend
 
 Currently, the project uses SQLite as the database, which is the default option for Django development. It stores all content-related data, such as categories, subcategories, and their descriptions.
 
@@ -64,8 +64,9 @@ Some examples of the Django admin interface:
 <img width="1346" height="601" alt="image" src="https://github.com/user-attachments/assets/67202fcb-132b-4049-8fcf-cede2dcf243c" />
 <img width="1348" height="623" alt="image" src="https://github.com/user-attachments/assets/fd8eaea3-0470-4792-bea2-94a3b2edb74f" />
 
+
 ### Chatbot Service
-The chatbot service is implemented using FastAPI and communicates with the Django backend.
+The chatbot service is implemented using FastAPI and communicates with the Django.
 
 The chatbot follows a Retrieval-Augmented Generation (RAG) pipeline:
 - Information is scraped from [micenter.lt](https://lithuania.iom.int/)
@@ -74,7 +75,7 @@ The chatbot follows a Retrieval-Augmented Generation (RAG) pipeline:
 - Chunks are embedded using the all-MiniLM-L6-v2 model and stored in a FAISS vector store
 
 At runtime:
-- The user's question is embedded
+- The user's query is converted into an embedding vector
 - 3 the most similar chunks are retrieved from FAISS
 - The context is sent to a language model (Gemma 7B-Instruct) to generate a response
 
@@ -98,20 +99,25 @@ How It Worked
 - When a user accessed the website via the public IP, the hosting server forwarded the request:
   - To port 3000 on my laptop for the React frontend
   - To port 8000 if Django admin or database content was needed
-  - To port 8887 on the university server for chatbot processing (FastAPI)
+  - To port 8887 to reach the university server for chatbot processing (FastAPI)
 - This setup allowed users to use the website from anywhere, even though the services were distributed across different machines.
 
-##### Proxy Configuration
+Proxy Configuration
+
 To enable this communication, I created a ```proxy/``` directory in the codebase that contains:
 - ```frpc_linux_server/``` – proxy config for forwarding chatbot traffic
 - ```frpc_windows_PC/``` – proxy config for routing frontend/backend traffic
 
-##### ⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
-##### ⚠️ This feature is no longer active because I don't want to pay for the VPS 😅
-##### 🧩 The chatbot runs on the university server because my personal laptop isn’t powerful enough to handle AI workloads.
+
+⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
+
+⚠️ This feature is no longer active because I don't want to pay for the VPS 😅
+
+🧩 The chatbot runs on the university server because my personal laptop isn’t powerful enough to handle AI workloads.
+
 
 ### University Server and Local Laptop Communication
-The chatbot service (running on my university server) and the Django/React services (running on my local laptop) communicate via ngrok.
+The chatbot service (running on my university server) and the Django/React services (running on my local laptop) communicate via ngrok now.
 The free plan is sufficient for this prototype, although it is slightly inconvenient since the public URL changes with each session.
 
 ---
