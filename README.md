@@ -82,7 +82,7 @@ Things to note:
 - It tends to refuse to answer when unsure, rather than hallucinate — which is a good feature, given the importance of accuracy in legal contexts.
 
 
-## Proxy Setup & Public Access (No Longer Active)
+### Proxy Setup & Public Access (No Longer Active)
 During the prototype testing phase, the website was made publicly accessible by using a custom proxy setup (via FRP - Fast Reverse Proxy) involving three separate machines:
 
 Port Assignments
@@ -105,9 +105,9 @@ To enable this communication, I created a ```proxy/``` directory in the codebase
 
 ##### ⚠️ Unfortunately, I forgot to save the proxy configuration used on the [hosting.com](https://hosting.com/hosting/vps-hosting/unmanaged/linux/#plans) server — it is not included in the repository.
 ##### ⚠️ This feature is no longer active because I don't want to pay for the VPS 😅
+##### 🧩 The chatbot runs on the university server because my personal laptop isn’t powerful enough to handle AI workloads.
 
-
-## University Server and Local Laptop Communication
+### University Server and Local Laptop Communication
 The chatbot service (running on my university server) and the Django/React services (running on my local laptop) communicate via ngrok.
 The free plan is sufficient for this prototype, although it is slightly inconvenient since the public URL changes with each session.
 
@@ -175,5 +175,8 @@ This will start both the Django backend and React frontend. You can then access 
 - Home page: *http://localhost:3000*
 - Admin page: *http://localhost:8000/admin*.
 
+---
 
+❗ All processes (Uvicorn, ngrok, Docker) must be run in separate terminals or as background processes.
+When I had a public IP, I used _tmux_ to manage multiple sessions efficiently.
 
